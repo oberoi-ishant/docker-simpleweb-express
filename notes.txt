@@ -1,0 +1,38 @@
+Check Images(container-overview, container-view, namespaces-*)
+
+Namespacing: isolating resources per process.(or groups of processes)
+Control groups (CGroups): limit amount of resources used per process.
+So Namespacing says hey this area of hard drive is for this process and
+control groups can be used to limit the amount of memory, cpu i/o, network bandwidth.
+These two feature put together can ISOLATE a single process. It can limit the
+amount of resources a process can talk to and limit the amount of bandwidth it can make use of.
+This Namespacing and Control Groups conepts is only in LINUX.
+Image(docker-linux-vm). So we actually downloaded a LINUX Virtual Machine
+with docker. This linux machine has kernel which is responsible for running
+containers and limiting resources for containers from our computer.
+Run: docker version -- (Output has)
+OS/Arch:          linux/amd64
+
+
+Container is an instance of an image. It is a program that has its own set of hardware resources.
+So a running process with the resources it can talk to can be called a container.
+
+Image: is like a file system snapshot, with a specific set of directories/folder
+and a startup command.
+
+Image: image-container-relationship.png
+
+So we load those image directories on to a process (that is isolated
+from rest of the system and has access to a portion of the specified resoucres only)
+and run the image start up command in that process.
+We are running a CONTAINER.
+
+
+
+
+Image(elasticbeanstalk-scale-strategy)
+So elasticbeanstalk scale strategy might run more copies of our complete containers
+based on info in Dockerrun.aws.json. So more machines, less control.
+Hence Kubernetes. So in Image kubernetes-strategy.png, we see we can control what is running in which
+node and how many containers we want to run. So more control.
+Image(why-k8s).png
